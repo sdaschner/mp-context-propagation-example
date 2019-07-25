@@ -1,7 +1,7 @@
 == MicroProfile Context Propagation example
 
 Example code for trying out MicroProfile Context Propagation.
-Also see my blog post.
+Also see my https://blog.sebastian-daschner.com/entries/context-asynchronous-execution-bulkheads-microprofile[blog post^] on that topic.
 
 This project uses Open Liberty in a nightly build.
 
@@ -19,7 +19,7 @@ You can access the resources using cURL or any other HTTP client:
 ----
 curl localhost:9080/mp-cp-example/resources/bulkheads -i
 curl localhost:9080/mp-cp-example/resources/bulkheads -i -XPUT -d 'foobar'
-curl localhost:9080/mp-cp-example/resources/contexts -i -XPUT -d 'foobar'
+curl localhost:9080/mp-cp-example/resources/contexts/example -i -XPUT -d 'foobar'
 ----
 
 Also have a look at the default metrics provided by Open Liberty:
