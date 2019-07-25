@@ -1,0 +1,29 @@
+== MicroProfile Context Propagation example
+
+Example code for trying out MicroProfile Context Propagation.
+Also see my blog post.
+
+This project uses Open Liberty in a nightly build.
+
+
+=== Building &amp; Running
+
+----
+mvn clean package
+docker build -t mp-cp-example .
+docker run --rm -p 9080:9080 mp-context
+----
+
+You can access the resources using cURL or any other HTTP client:
+
+----
+curl localhost:9080/mp-cp-example/resources/bulkheads -i
+curl localhost:9080/mp-cp-example/resources/bulkheads -i -XPUT -d 'foobar'
+curl localhost:9080/mp-cp-example/resources/contexts -i -XPUT -d 'foobar'
+----
+
+Also have a look at the default metrics provided by Open Liberty:
+
+----
+curl localhost:9080/metrics/
+----
